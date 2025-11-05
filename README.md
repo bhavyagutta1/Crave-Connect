@@ -167,12 +167,6 @@ NODE_ENV=development
 CLIENT_URL=http://localhost:3000
 ```
 
-**For MongoDB Atlas (Cloud):**
-Replace `MONGODB_URI` with your Atlas connection string:
-```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/craveconnect?retryWrites=true&w=majority
-```
-
 4. **Seed the database** (Optional but recommended)
 ```bash
 npm run seed
@@ -334,29 +328,6 @@ After seeding the database, you can use these accounts:
 2. Connect GitHub repository
 3. Set environment variables
 4. Deploy
-
-### Frontend (Vercel)
-1. Create account on Vercel
-2. Import GitHub repository
-3. Set `REACT_APP_API_URL` to your backend URL
-4. Deploy
-
-## 📝 Environment Variables
-
-### Backend (.env)
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRE=7d
-NODE_ENV=production
-CLIENT_URL=your_frontend_url
-```
-
-### Frontend (.env)
-```env
-REACT_APP_API_URL=your_backend_api_url
-```
 
 ## 🤝 Contributing
 
