@@ -214,11 +214,9 @@ After seeding the database, you can use these accounts:
 | Role | Email | Password |
 |------|-------|----------|
 | Admin | admin@craveconnect.com | admin123 |
-| Chef | maria@example.com | password123 |
 | Chef | takeshi@example.com | password123 |
 | Chef | raj@example.com | password123 |
-| Foodie | sarah@example.com | password123 |
-| Foodie | mike@example.com | password123 |
+
 
 ## 📱 Features Overview
 
@@ -364,21 +362,5 @@ REACT_APP_API_URL=your_backend_api_url
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Recipe images from Unsplash
-- Icons from Lucide React
-- Fonts from Google Fonts
-- UI inspiration from modern food platforms
-
-## 📞 Support
-
-For support, email support@craveconnect.com or join our community chat.
-
----
 
 **Built with ❤️ for food lovers everywhere**
