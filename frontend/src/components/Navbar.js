@@ -4,11 +4,11 @@ import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { 
   Home, Search, MessageCircle, Trophy, User, LogOut, 
-  Moon, Sun, Menu, X, Bell, BookMarked, Shield 
+  Moon, Sun, Menu, X, Bell, BookMarked, Shield, PlusCircle 
 } from 'lucide-react';
 
 const Navbar = () => {
-  const { user, logout, isAdmin } = useAuth();
+  const { user, logout, isAdmin, isChef } = useAuth();
   const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,6 +60,17 @@ const Navbar = () => {
               <Trophy size={20} />
               <span>Top Chefs</span>
             </Link>
+            
+            {/* Post Recipe - Only for Chefs and Admins */}
+            {isChef && (
+              <Link 
+                to="/post-recipe" 
+                className="flex items-center space-x-1 px-4 py-2 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full hover:shadow-lg transition font-medium"
+              >
+                <PlusCircle size={20} />
+                <span>Post Recipe</span>
+              </Link>
+            )}
           </div>
 
           {/* Right Side Actions */}
@@ -192,6 +203,19 @@ const Navbar = () => {
               <Trophy size={20} />
               <span>Top Chefs</span>
             </Link>
+            
+            {/* Post Recipe - Mobile */}
+            {isChef && (
+              <Link 
+                to="/post-recipe" 
+                className="flex items-center space-x-2 py-2 px-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <PlusCircle size={20} />
+                <span>Post Recipe</span>
+              </Link>
+            )}
+            
             {user && (
               <>
                 <Link 

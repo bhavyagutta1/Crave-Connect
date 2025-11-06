@@ -1,6 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import io from 'socket.io-client';
-import { useAuth } from './AuthContext';
+import React, { createContext, useContext } from 'react';
 
 const SocketContext = createContext();
 
@@ -13,48 +11,12 @@ export const useSocket = () => {
 };
 
 export const SocketProvider = ({ children }) => {
-  const [socket, setSocket] = useState(null);
-  const [connected, setConnected] = useState(false);
-  const [activeUsers, setActiveUsers] = useState([]);
-  const { user, isAuthenticated } = useAuth();
-
-  useEffect(() => {
-    if (isAuthenticated && user) {
-      const newSocket = io(process.env.REACT_APP_API_URL || 'http://localhost:5000', {
-        transports: ['websocket', 'polling']
-      });
-
-      newSocket.on('connect', () => {
-        console.log('Socket connected');
-        setConnected(true);
-        newSocket.emit('user:join', {
-          userId: user._id,
-          username: user.username,
-          avatar: user.avatar
-        });
-      });
-
-      newSocket.on('disconnect', () => {
-        console.log('Socket disconnected');
-        setConnected(false);
-      });
-
-      newSocket.on('users:active', (users) => {
-        setActiveUsers(users);
-      });
-
-      setSocket(newSocket);
-
-      return () => {
-        newSocket.close();
-      };
-    }
-  }, [isAuthenticated, user]);
-
+  // Disabled Socket.io for Vercel deployment
+  // Real-time features will require page refresh
   const value = {
-    socket,
-    connected,
-    activeUsers
+    socket: null,
+    connected: false,
+    activeUsers: []
   };
 
   return <SocketContext.Provider value={value}>{children}</SocketContext.Provider>;
