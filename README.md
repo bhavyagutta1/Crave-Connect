@@ -1,3 +1,6 @@
+VERCEL LINK:https://crave-connect-w9ii.vercel.app/
+
+
 # 🍽️ CraveConnect - Food Community Platform
 
 A full-stack, real-time community platform for food lovers to share, discover, rate, and chat about recipes.
